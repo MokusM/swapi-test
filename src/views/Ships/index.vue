@@ -2,18 +2,23 @@
   <div class="home">
     <h1>Ships</h1>
     <ShipsSearch :filters="filters" @update:filters="onFiltersUpdate" />
-    <ShipsList :ships="ships" />
+    <div class="main-container">
+      <Loader v-if="loading" />
+      <ShipsList v-else :ships="ships" />
+    </div>
   </div>
 </template>
 <script>
 import ShipsSearch from "./ShipsSearch";
 import ShipsList from "./ShipsList";
+import Loader from "@/components/Loader";
 import { mapGetters, mapActions } from "vuex";
 export default {
   name: "Ships",
   components: {
     ShipsSearch,
-    ShipsList
+    ShipsList,
+    Loader
   },
   data() {
     return {

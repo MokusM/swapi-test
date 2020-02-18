@@ -1,8 +1,6 @@
 <template>
   <li class="">
-    <router-link :to="'/actors/' + actor.episode_id">
-      {{ actor.name }}
-    </router-link>
+    {{ actor.name }}
   </li>
 </template>
 <script>

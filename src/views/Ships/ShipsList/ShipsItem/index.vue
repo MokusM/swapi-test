@@ -1,8 +1,6 @@
 <template>
   <li class="">
-    <router-link :to="'/ships/' + ship.episode_id">
-      {{ ship.name }}
-    </router-link>
+    {{ ship.name }}
   </li>
 </template>
 <script>

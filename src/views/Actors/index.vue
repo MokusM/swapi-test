@@ -2,18 +2,23 @@
   <div class="home">
     <h1>Actors</h1>
     <ActorsSearch :filters="filters" @update:filters="onFiltersUpdate" />
-    <ActorsList :actors="actors" />
+    <div class="main-container">
+      <Loader v-if="loading" />
+      <ActorsList v-else :actors="actors" />
+    </div>
   </div>
 </template>
 <script>
 import ActorsSearch from "./ActorsSearch";
 import ActorsList from "./ActorsList";
+import Loader from "@/components/Loader";
 import { mapGetters, mapActions } from "vuex";
 export default {
   name: "Actors",
   components: {
     ActorsSearch,
-    ActorsList
+    ActorsList,
+    Loader
   },
   data() {
     return {
